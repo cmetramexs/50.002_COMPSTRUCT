@@ -1,0 +1,37 @@
+module alu (
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16]
+
+  ) {
+
+  .a(a) {
+    .b(b) {
+      .alufn(alufn[5:0]) {
+        adder aluadder;
+        boolean alubool;
+        comparator alucmp;
+        shifter alushift;
+        }        
+      }
+    }
+  
+  
+  always {    
+    out = 0;
+    
+    case(alufn[5:4]) {
+      2b00:  
+        out = aluadder.adder;        
+      2b11:  
+        out = alucmp.cmp;       
+      2b01:  
+        out = alubool.boolean;       
+      2b10:  
+        out = alushift.shift;  
+
+      default: out = 0;  
+    }   
+  }
+}
