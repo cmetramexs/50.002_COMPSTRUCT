@@ -6,9 +6,14 @@
     <src>shifter.luc</src>
     <src>adder.luc</src>
     <src top="true">mojo_top.luc</src>
+    <src>button_conditioner.luc</src>
+    <src>counter.luc</src>
     <src>comparator.luc</src>
     <ucf>custom.ucf</ucf>
     <ucf lib="true">mojo.ucf</ucf>
     <component>reset_conditioner.luc</component>
+    <component>pipeline.luc</component>
+    <component>button_conditioner.luc</component>
+    <component>edge_detector.luc</component>
   </files>
 </project>

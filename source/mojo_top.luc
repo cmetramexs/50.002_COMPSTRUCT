@@ -10,8 +10,20 @@ module mojo_top (
     output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
     input avr_tx,           // AVR TX (FPGA RX)
     output avr_rx,          // AVR RX (FPGA TX)
-    input avr_rx_busy       // AVR RX buffer full
+    input avr_rx_busy,      // AVR RX buffer full
+
+    input mode_dip,         // TO SELECT MODES
+    input p1_button,        // P1 button 
+    input p2_button,        // P2 button
+    
+    output p1_led[3],
+    output p2_led[3],
+    output led_line[16]
   ) {
+ var p1_input;
+ var p2_input;
+ var ball_pos[18];
+ var shift;        // 1:ball shift left(to P1), 0:ball shift right(to P2)
   
  sig rst;                  // reset signal
     
@@ -20,17 +32,24 @@ module mojo_top (
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
     fsm state = {IDLE, ONEPLAYER, TWOPLAYER,
-                P2TURN2P, P1TURN2P, WIN2P,
-                BOTTURN1P, P1TURN1P, BOTMISS1P, WIN1P};  // Other test cases
-      
-    dff inp_a[16];  // to store input of a
-    dff inp_b[16];  // to store input of b
+                P2TURN2P, P1TURN2P, END2P,
+                BOTTURN1P, P1TURN1P, BOTMISS1P, END1P};  // Other test cases
     
     .rst(rst){
-      
+      counter p1_counter;
+      counter p2_counter;
     }
-    dff counter[27];
+        
+    dff change_spd[5]; // for counting when to change counter 
+    dff ball_spd5[12]; // for different ball speeds
+    dff ball_spd4[14]; 
+    dff ball_spd3[16];
+    dff ball_spd2[20];
+    dff ball_spd1[24];
   }
+  
+  const P1SAFEZONE = 16b1110000000000000;
+  const P2SAFEZONE = 16b0000000000000111;
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -41,29 +60,56 @@ module mojo_top (
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
     
+    p1_counter.button = ~p1_button;
+    p1_input = p1_counter.count;
+    p2_counter.button = ~p2_button;
+    p2_input = p2_counter.count;
+    
+    p1_led = 3b111;
+    p2_led = 3b111;
+    ball_pos = 16b0000000000000001; //start at P2 end moving to P1
+    led_line = ball_pos[16:1];
+    shift = 0;                   //shift left
+    
     case(state.q){
       state.IDLE:
-      
+        if (mode_dip == 1){
+          state.d = state.TWOPLAYER;} //when switch is HIGH, go to 2P mode
+        else {
+          state.d = state.ONEPLAYER;} //when switch is LOW, go to 1P mode
       state.TWOPLAYER:
-     
+        if (p1_button == 1){
+          state.d = state.P1TURN2P;}  //if either player press button, start game
       state.ONEPLAYER:
-      
+        if (p1_button == 1){
+          state.d = state.P1TURN1P;}  //if player press button, start game
       
       //2P States
+      state.P1TURN2P:
+        if (ball_pos & P1SAFEZONE){
+          if (p1_input == 1){
+            shift = shift + 1;
+            state.d = state.P2TURN2P;
+          }
+        } else{
+          if (p1_input == 1){
+            state.d = state.END2P;
+          }
+        }
+          
       state.P2TURN2P:
+        if (ball_pos & P2SAFEZONE){
+          if (p2_input == 1){
+            shift = shift + 1;
+            state.d = state.P1TURN2P;
+          }
+        } else{
+          if (p2_input == 1){
+            state.d = state.END2P;
+          }
+        }
       
-      state.P1TURN1P:
       
-      state.WIN2P:
-      
-      //1P States
-      state.BOTTURN1P:
-      
-      state.BOTMISS1P:
-      
-      state.P1TURN1P:
-      
-      state.WIN1P:
       
     }
     
