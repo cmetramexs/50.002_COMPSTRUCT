@@ -57,7 +57,7 @@ module mojo_top (
     
     if (speed_counter.q == 2b11){ //change speed after ball bounces 3 times
       speed_counter.d = 2b0;
-      if (speeds.q == 24h800000){
+      if (speeds.q == 24h800000){ //hard coded change speeds
         speeds.d = 24h408000;
         }
       else if (speeds.q == 24h408000){
