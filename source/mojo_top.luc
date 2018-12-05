@@ -1,117 +1,192 @@
 module mojo_top (
-    input clk,              // 50MHz clock
-    input rst_n,            // reset button (active low)
-    output led [8],         // 8 user controllable LEDs
-    input cclk,             // configuration clock, AVR ready when high
-    output spi_miso,        // AVR SPI MISO
-    input spi_ss,           // AVR SPI Slave Select
-    input spi_mosi,         // AVR SPI MOSI
-    input spi_sck,          // AVR SPI Clock
-    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
-    input avr_tx,           // AVR TX (FPGA RX)
-    output avr_rx,          // AVR RX (FPGA TX)
-    input avr_rx_busy,      // AVR RX buffer full
+    input clk, // 50MHz clock
+    input rst_n, // reset button (active low)
+    output led [8], // 8 user controllable LEDs
 
-    input mode_dip,         // TO SELECT MODES
-    input p1_button,        // P1 button 
-    input p2_button,        // P2 button
+    output io_led[3][8],
     
-    output p1_led[3],
-    output p2_led[3],
-    output led_line[16]
+    input io_button[5],
+    input p1_button,
+    input p2_button,
+    input start_button
+
   ) {
- var p1_input;
- var p2_input;
- var ball_pos[18];
- var shift;        // 1:ball shift left(to P1), 0:ball shift right(to P2)
+  sig rst; // reset signal
+  alu alu;
   
- sig rst;                  // reset signal
-    
   .clk(clk) {
-    // The reset conditioner is used to synchronize the reset signal to the FPGA
-    // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
-    fsm state = {IDLE, ONEPLAYER, TWOPLAYER,
-                P2TURN2P, P1TURN2P, END2P,
-                BOTTURN1P, P1TURN1P, BOTMISS1P, END1P};  // Other test cases
-    
+
     .rst(rst){
-      counter p1_counter;
-      counter p2_counter;
+    fsm state = {MENU,P1,P2,P1_LOSE,P2_LOSE,LOSE};
+    dff ball_pos[16]; //store position of ball_pos
+    dff ball_speed[24]; //lower means faster
+    
+    dff lives_p1[16]; //P1 lives
+    dff lives_p2[16]; //P2 lives 
+      
+    dff speeds[24];       //stores speed 
+    dff speed_counter[2]; //change speeds after ball bounces 3 times
+    
+    button button_p1;
+    button button_p2;
+    button button_start;
     }
-        
-    dff change_spd[5]; // for counting when to change counter 
-    dff ball_spd5[12]; // for different ball speeds
-    dff ball_spd4[14]; 
-    dff ball_spd3[16];
-    dff ball_spd2[20];
-    dff ball_spd1[24];
   }
-  
-  const P1SAFEZONE = 16b1110000000000000;
-  const P2SAFEZONE = 16b0000000000000111;
-  
+
   always {
+    led = speed_counter.q;
+    alu.a = 0;
+    alu.b = 1;
+    alu.alufn = 0;
+
     reset_cond.in = ~rst_n; // input raw inverted reset signal
-    rst = reset_cond.out;   // conditioned reset
+    rst = reset_cond.out; // conditioned reset
+
+    io_led[0] = ball_pos.q[7:0]; //representing ball movement in io_led[0]
+    io_led[1] = ball_pos.q[15:8];
     
-    led = 8h00;             // turn LEDs off
-    spi_miso = bz;          // not using SPI
-    spi_channel = bzzzz;    // not using flags
-    avr_rx = bz;            // not using serial port
+    io_led[2] = 0;
+    io_led[2][7:5] = lives_p1.q[15:13];
+    io_led[2][2:0] = lives_p2.q[2:0];
+
+    button_p1.button = io_button[3];
+    button_p2.button = io_button[4];
+    button_start.button = io_button[1];
     
-    p1_counter.button = ~p1_button;
-    p1_input = p1_counter.count;
-    p2_counter.button = ~p2_button;
-    p2_input = p2_counter.count;
     
-    p1_led = 3b111;
-    p2_led = 3b111;
-    ball_pos = 16b0000000000000001; //start at P2 end moving to P1
-    led_line = ball_pos[16:1];
-    shift = 0;                   //shift left
-    
-    case(state.q){
-      state.IDLE:
-        if (mode_dip == 1){
-          state.d = state.TWOPLAYER;} //when switch is HIGH, go to 2P mode
-        else {
-          state.d = state.ONEPLAYER;} //when switch is LOW, go to 1P mode
-      state.TWOPLAYER:
-        if (p1_button == 1){
-          state.d = state.P1TURN2P;}  //if either player press button, start game
-      state.ONEPLAYER:
-        if (p1_button == 1){
-          state.d = state.P1TURN1P;}  //if player press button, start game
-      
-      //2P States
-      state.P1TURN2P:
-        if (ball_pos & P1SAFEZONE){
-          if (p1_input == 1){
-            shift = shift + 1;
-            state.d = state.P2TURN2P;
-          }
-        } else{
-          if (p1_input == 1){
-            state.d = state.END2P;
-          }
+    if (speed_counter.q == 2b11){ //change speed after ball bounces 3 times
+      speed_counter.d = 2b0;
+      if (speeds.q == 24h800000){
+        speeds.d = 24h408000;
         }
-          
-      state.P2TURN2P:
-        if (ball_pos & P2SAFEZONE){
-          if (p2_input == 1){
-            shift = shift + 1;
-            state.d = state.P1TURN2P;
-          }
-        } else{
-          if (p2_input == 1){
-            state.d = state.END2P;
-          }
+      else if (speeds.q == 24h408000){
+        speeds.d = 24h308000;
         }
-      
-      
-      
+      else if (speeds.q == 24h308000){
+        speeds.d = 24h300800;
+        }
+      else{
+        speeds.d = 24h1F0000;
+      }
     }
+
+    case(state.q){
+      state.MENU: //reset game, ball position & #lives
+        led = 8b10101010;
+        ball_pos.d = 18b1;
+        lives_p1.d = 16b1110000000000000;
+        lives_p2.d = 16b111;
+        speeds.d = 24h800000;
+        speed_counter.d = 0;
+        if(button_start.press) {
+          state.d = state.P1;
+          }
+        
+      state.P1:      
+        if (!ball_pos.q){ //ball out of range
+          lives_p1.d = lives_p1.q << 1; //"-1" life  
+          state.d = state.P1_LOSE;
+        }
+ 
+        if(button_p1.press){
+          if (ball_pos.q[15] | ball_pos.q[14]){ //check if ball in safe zone
+            speed_counter.d = speed_counter.q + 1; //increment number of ball bounces
+            state.d = state.P2;
+          }
+          else {
+            lives_p1.d = lives_p1.q << 1; //"-1" life    
+            state.d = state.P1_LOSE;       
+          }
+        }       
+        
+      state.P2:
+        if(!ball_pos.q){ //ball out of range
+          lives_p2.d = lives_p2.q >> 1; //"-1" life 
+          state.d = state.P2_LOSE;
+        }
+        
+        if(button_p2.press){
+          if (ball_pos.q[0] | ball_pos.q[1]){
+            speed_counter.d = speed_counter.q + 1; //increment number of ball bounces
+            state.d = state.P1;
+          }
+          else {
+            lives_p2.d = lives_p2.q >> 1; //"-1" life      
+            state.d = state.P2_LOSE; 
+          }
+        }
+        
+      state.P1_LOSE:
+        alu.a = lives_p1.q;
+        alu.b = 0;
+        alu.alufn = 6h33; //checks if lives left => game over
+        if (alu.out){
+          state.d = state.LOSE;
+          }
+        else {           
+          ball_pos.d = 16b1000000000000000;
+          if (button_p1.press){
+            state.d = state.P2; 
+          }        
+        }  
     
-  }
+      state.P2_LOSE:
+        alu.a = lives_p2.q;
+        alu.b = 0;
+        alu.alufn = 6h33; //checks if lives left => game over
+        if (alu.out){
+          state.d = state.LOSE;
+        }
+        else {     
+          ball_pos.d = 16b1;  
+          if (button_p2.press){
+            state.d = state.P1;   
+          }      
+        }
+      
+      state.LOSE:
+        io_led[2][4:3] = 2b11; //indicate game over state
+        alu.a = lives_p1.q[15:13];
+        alu.b = 0;
+        alu.alufn = 6h33; //checks which player lost i.e. lives = 0
+        if (alu.out){
+          io_led[0] = 8b11111111;
+          io_led[1] = 0;
+        }
+        else {
+          io_led[0] = 0;
+          io_led[1] = 8b11111111;
+        }
+        if (button_start.press) {
+          state.d = state.MENU;
+        }
+        else{
+          state.d = state.LOSE;
+        }
+     }
+    
+     ball_speed.d = ball_speed.q + 1; //slow clock ticks when clk HIGH
+      
+     if (ball_speed.q[23:0] >= speeds.q[23:0]) {
+        ball_speed.d[23:0] = 0;
+        case(state.q){  
+          state.P1:
+            alu.a = ball_pos.q;
+            alu.b = 1;
+            alu.alufn = 6h20; 
+            ball_pos.d = alu.out; //ball shift left to P1
+            
+          state.P2:
+            alu.a = ball_pos.q;
+            alu.b = 1;
+            alu.alufn = 6h21; 
+            ball_pos.d = alu.out; //ball shift right to P2  
+      }
+    }
+    if (speeds.q <= 24h408000){ //ball disappears at certain stage
+      io_led[0][7:6] = 0;
+      io_led[1][1:0] = 0;
+    } 
+  } 
 }

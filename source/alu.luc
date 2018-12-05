@@ -9,10 +9,9 @@ module alu (
   .a(a) {
     .b(b) {
       .alufn(alufn[5:0]) {
-        adder aluadder;
-        boolean alubool;
-        comparator alucmp;
         shifter alushift;
+        //boolean alubool;
+        comparator alucmp;
         }        
       }
     }
@@ -22,14 +21,12 @@ module alu (
     out = 0;
     
     case(alufn[5:4]) {
-      2b00:  
-        out = aluadder.adder;        
-      2b11:  
-        out = alucmp.cmp;       
-      2b01:  
-        out = alubool.boolean;       
+//      2b01:  
+//       out = alubool.boolean;        
       2b10:  
-        out = alushift.shift;  
+        out = alushift.shift;
+      2b11:  
+        out = alucmp.cmp;     
 
       default: out = 0;  
     }   

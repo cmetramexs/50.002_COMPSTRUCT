@@ -10,11 +10,11 @@ module shifter (
   always {
     xb = $signed(b[3:0]);    
     case (alufn[1:0]) { 
-      2b00:
+      2b00: //6h20
         shift = $signed(a) << xb;        
-      2b01:
+      2b01: //6h21
         shift = $signed(a) >> xb;        
-      2b11:
+      2b11: //6h23
         shift = $signed(a) >>> xb;      
       default:
         shift = 0;
