@@ -2,10 +2,11 @@ module mojo_top (
     input clk, // 50MHz clock
     input rst_n, // reset button (active low)
     output led [8], // 8 user controllable LEDs
-
-    output io_led[3][8],
     
-    input io_button[5],
+    output led_pos[16],
+    output led_p1[3],
+    output led_p2[3],
+
     input p1_button,
     input p2_button,
     input start_button
@@ -13,6 +14,9 @@ module mojo_top (
   ) {
   sig rst; // reset signal
   alu alu;
+  speeds speeds_lib;
+  lives p1_lives;
+  lives p2_lives;
   
   .clk(clk) {
     reset_conditioner reset_cond;
@@ -27,6 +31,8 @@ module mojo_top (
       
     dff speeds[24];       //stores speed 
     dff speed_counter[2]; //change speeds after ball bounces 3 times
+      
+    dff delay[25];
     
     button button_p1;
     button button_p2;
@@ -43,41 +49,32 @@ module mojo_top (
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out; // conditioned reset
 
-    io_led[0] = ball_pos.q[7:0]; //representing ball movement in io_led[0]
-    io_led[1] = ball_pos.q[15:8];
+    led_pos = ball_pos.q; //representing ball movement in io_led[0]
     
-    io_led[2] = 0;
-    io_led[2][7:5] = lives_p1.q[15:13];
-    io_led[2][2:0] = lives_p2.q[2:0];
+    p1_lives.num = lives_p1.q[2:0];
+    p2_lives.num = lives_p2.q[2:0];
+    
+    led_p1 = p1_lives.led;
+    led_p2 = p2_lives.led;
 
-    button_p1.button = io_button[3];
-    button_p2.button = io_button[4];
-    button_start.button = io_button[1];
+    button_p1.button = ~p1_button;
+    button_p2.button = ~p2_button;
+    button_start.button = ~start_button;
     
+    speeds_lib.num = (ball_speed.q[21:19] ^ ball_speed.q[18:16]); // randomize speed to change to
     
-    if (speed_counter.q == 2b11){ //change speed after ball bounces 3 times
+    if (speed_counter.q == 2b11){
       speed_counter.d = 2b0;
-      if (speeds.q == 24h800000){ //hard coded change speeds
-        speeds.d = 24h408000;
-        }
-      else if (speeds.q == 24h408000){
-        speeds.d = 24h308000;
-        }
-      else if (speeds.q == 24h308000){
-        speeds.d = 24h300800;
-        }
-      else{
-        speeds.d = 24h1F0000;
-      }
+      speeds.d = speeds_lib.speed;
     }
 
     case(state.q){
       state.MENU: //reset game, ball position & #lives
         led = 8b10101010;
         ball_pos.d = 18b1;
-        lives_p1.d = 16b1110000000000000;
-        lives_p2.d = 16b111;
-        speeds.d = 24h800000;
+        lives_p1.d = 16b11;
+        lives_p2.d = 16b11;
+        speeds.d = 24h300000;
         speed_counter.d = 0;
         if(button_start.press) {
           state.d = state.P1;
@@ -85,8 +82,10 @@ module mojo_top (
         
       state.P1:      
         if (!ball_pos.q){ //ball out of range
-          lives_p1.d = lives_p1.q << 1; //"-1" life  
-          state.d = state.P1_LOSE;
+          lives_p1.d = lives_p1.q - 1; //"-1" life
+          if (delay.q == 0){
+           state.d = state.P1_LOSE;
+          }
         }
  
         if(button_p1.press){
@@ -95,15 +94,17 @@ module mojo_top (
             state.d = state.P2;
           }
           else {
-            lives_p1.d = lives_p1.q << 1; //"-1" life    
+            lives_p1.d = lives_p1.q - 1; //"-1" life    
             state.d = state.P1_LOSE;       
           }
         }       
         
       state.P2:
         if(!ball_pos.q){ //ball out of range
-          lives_p2.d = lives_p2.q >> 1; //"-1" life 
-          state.d = state.P2_LOSE;
+          lives_p2.d = lives_p2.q - 1; //"-1" life 
+          if (delay.q == 0){
+           state.d = state.P2_LOSE;
+          }
         }
         
         if(button_p2.press){
@@ -112,7 +113,7 @@ module mojo_top (
             state.d = state.P1;
           }
           else {
-            lives_p2.d = lives_p2.q >> 1; //"-1" life      
+            lives_p2.d = lives_p2.q - 1; //"-1" life
             state.d = state.P2_LOSE; 
           }
         }
@@ -146,17 +147,14 @@ module mojo_top (
         }
       
       state.LOSE:
-        io_led[2][4:3] = 2b11; //indicate game over state
-        alu.a = lives_p1.q[15:13];
+        alu.a = lives_p1.q;
         alu.b = 0;
         alu.alufn = 6h33; //checks which player lost i.e. lives = 0
         if (alu.out){
-          io_led[0] = 8b11111111;
-          io_led[1] = 0;
+          led_pos = 16h00FF;
         }
         else {
-          io_led[0] = 0;
-          io_led[1] = 8b11111111;
+          led_pos = 16hFF00;
         }
         if (button_start.press) {
           state.d = state.MENU;
@@ -167,9 +165,10 @@ module mojo_top (
      }
     
      ball_speed.d = ball_speed.q + 1; //slow clock ticks when clk HIGH
+     delay.d = delay.q + 1;
       
-     if (ball_speed.q[23:0] >= speeds.q[23:0]) {
-        ball_speed.d[23:0] = 0;
+     if (ball_speed.q >= speeds.q) {
+        ball_speed.d = 0;
         case(state.q){  
           state.P1:
             alu.a = ball_pos.q;
@@ -184,9 +183,5 @@ module mojo_top (
             ball_pos.d = alu.out; //ball shift right to P2  
       }
     }
-    if (speeds.q <= 24h408000){ //ball disappears at certain stage
-      io_led[0][7:6] = 0;
-      io_led[1][1:0] = 0;
-    } 
   } 
 }
