@@ -5,7 +5,7 @@ module speeds (
  
   always {
     case (num) {
-      0: speed = 24h2F0000;
+/*      0: speed = 24h2F0000;
       1: speed = 24h200800;
       2: speed = 24h200000;
       3: speed = 24h10F000;
@@ -14,6 +14,18 @@ module speeds (
       6: speed = 24h0F0000;
       7: speed = 24h0A0000;
       default: speed = 24h300000;
+      */      
+        
+      0: speed = 24h400000;
+      1: speed = 24h3A0000;
+      2: speed = 24h300800;
+      3: speed = 24h2CF000;
+      4: speed = 24h220000;
+      5: speed = 24h1AF000;
+      6: speed = 24h120000;
+      7: speed = 24h0F0000;
+      default: speed = 24h4A0000;
+      
     }
   }
 }
