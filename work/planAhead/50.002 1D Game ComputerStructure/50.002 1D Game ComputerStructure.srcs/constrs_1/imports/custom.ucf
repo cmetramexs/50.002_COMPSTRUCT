@@ -1,2 +1,0 @@
-NET "p1_button" LOC = P51 | IOSTANDARD = LVTTL | PULLUP;
-NET "p2_button" LOC = P51 | IOSTANDARD = LVTTL | PULLUP;

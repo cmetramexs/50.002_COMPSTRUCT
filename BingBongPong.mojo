@@ -5,6 +5,7 @@
     <src>lives.luc</src>
     <src>alu.luc</src>
     <src>shifter.luc</src>
+    <src>adder.luc</src>
     <src top="true">mojo_top.luc</src>
     <src>speeds.luc</src>
     <src>comparator.luc</src>

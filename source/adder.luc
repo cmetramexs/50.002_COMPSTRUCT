@@ -6,15 +6,10 @@ module adder (
   ) {
 
   always {
-    case(alufn[1:0]) {
-      2b00:
-        adder = $signed(a) + $signed(b);
-      2b01:
-        adder = $signed(a) - $signed(b);
-      2b10:
-        adder = $signed(a) * $signed(b);
-      default:
-        adder = 0;
-        }
-   }
+    if(alufn[0] == 1){
+      adder = a - b;
+    } else {
+      adder = a + b;
+    }
+  }
 }

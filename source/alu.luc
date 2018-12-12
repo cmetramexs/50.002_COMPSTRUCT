@@ -9,8 +9,8 @@ module alu (
   .a(a) {
     .b(b) {
       .alufn(alufn[5:0]) {
+        adder aluadd;
         shifter alushift;
-        //boolean alubool;
         comparator alucmp;
         }        
       }
@@ -21,8 +21,8 @@ module alu (
     out = 0;
     
     case(alufn[5:4]) {
-//      2b01:  
-//       out = alubool.boolean;        
+      2b00:  
+       out = aluadd.adder;        
       2b10:  
         out = alushift.shift;
       2b11:  

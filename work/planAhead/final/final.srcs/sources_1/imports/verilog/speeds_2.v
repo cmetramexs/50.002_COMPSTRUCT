@@ -15,31 +15,31 @@ module speeds_2 (
     
     case (num)
       1'h0: begin
-        speed = 24'h2f0000;
+        speed = 24'h400000;
       end
       1'h1: begin
-        speed = 24'h200800;
+        speed = 24'h3a0000;
       end
       2'h2: begin
-        speed = 24'h200000;
+        speed = 24'h300800;
       end
       2'h3: begin
-        speed = 24'h10f000;
+        speed = 24'h2cf000;
       end
       3'h4: begin
-        speed = 24'h100000;
+        speed = 24'h220000;
       end
       3'h5: begin
-        speed = 24'h0ff000;
+        speed = 24'h1af000;
       end
       3'h6: begin
-        speed = 24'h0f0000;
+        speed = 24'h120000;
       end
       3'h7: begin
-        speed = 24'h0a0000;
+        speed = 24'h0f0000;
       end
       default: begin
-        speed = 24'h300000;
+        speed = 24'h4a0000;
       end
     endcase
   end

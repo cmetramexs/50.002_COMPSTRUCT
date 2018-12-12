@@ -84,7 +84,10 @@ module mojo_top (
       state.P1:
         if (ball_pos.q == 0){ //ball out of range
           if (delay.q == 0){
-            lives_p1.d = lives_p1.q - 1; //"-1" life
+            alu.a = lives_p1.q;
+            alu.b = 1;
+            alu.alufn = 6h1;
+            lives_p1.d = alu.out; //"-1" life
             state.d = state.P1_LOSE;
           }
         }
@@ -95,7 +98,10 @@ module mojo_top (
             state.d = state.P2;
           }
           else {
-            lives_p1.d = lives_p1.q - 1; //"-1" life
+            alu.a = lives_p1.q;
+            alu.b = 1;
+            alu.alufn = 6h1;
+            lives_p1.d = alu.out; //"-1" life
             state.d = state.P1_LOSE;
           }
         }
@@ -103,7 +109,10 @@ module mojo_top (
       state.P2:
         if(ball_pos.q == 0){ //ball out of range
           if (delay.q == 0){
-            lives_p2.d = lives_p2.q - 1; //"-1" life
+            alu.a = lives_p2.q;
+            alu.b = 1;
+            alu.alufn = 6h1;
+            lives_p1.d = alu.out; //"-1" life
             state.d = state.P2_LOSE;
           }
         }
@@ -114,7 +123,10 @@ module mojo_top (
             state.d = state.P1;
           }
           else {
-            lives_p2.d = lives_p2.q - 1; //"-1" life
+            alu.a = lives_p1.q;
+            alu.b = 1;
+            alu.alufn = 6h1;
+            lives_p1.d = alu.out; //"-1" life
             state.d = state.P2_LOSE;
           }
         }

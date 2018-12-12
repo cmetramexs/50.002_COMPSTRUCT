@@ -13,15 +13,22 @@ module alu_1 (
   
   
   
+  wire [16-1:0] M_aluadd_adder;
+  adder_9 aluadd (
+    .a(a),
+    .b(b),
+    .alufn(alufn[0+5-:6]),
+    .adder(M_aluadd_adder)
+  );
   wire [16-1:0] M_alushift_shift;
-  shifter_9 alushift (
+  shifter_10 alushift (
     .a(a),
     .b(b),
     .alufn(alufn[0+5-:6]),
     .shift(M_alushift_shift)
   );
   wire [16-1:0] M_alucmp_cmp;
-  comparator_10 alucmp (
+  comparator_11 alucmp (
     .a(a),
     .b(b),
     .alufn(alufn[0+5-:6]),
@@ -32,6 +39,9 @@ module alu_1 (
     out = 1'h0;
     
     case (alufn[4+1-:2])
+      2'h0: begin
+        out = M_aluadd_adder;
+      end
       2'h2: begin
         out = M_alushift_shift;
       end

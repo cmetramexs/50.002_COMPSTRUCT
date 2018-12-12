@@ -1,4 +1,0 @@
-
-*** Running xst
-    with args -ifn "mojo_top_0.xst" -ofn "mojo_top_0.srp" -intstyle ise
-

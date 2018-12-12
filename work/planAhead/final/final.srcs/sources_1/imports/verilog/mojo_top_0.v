@@ -135,16 +135,19 @@ module mojo_top_0 (
         M_ball_pos_d = 18'h00001;
         M_lives_p1_d = 16'h0003;
         M_lives_p2_d = 16'h0003;
-        M_speeds_d = 24'h300000;
+        M_speeds_d = 24'h4a0000;
         M_speed_counter_d = 1'h0;
         if (M_button_start_press) begin
           M_state_d = P1_state;
         end
       end
       P1_state: begin
-        if (!M_ball_pos_q) begin
-          M_lives_p1_d = M_lives_p1_q - 1'h1;
+        if (M_ball_pos_q == 1'h0) begin
           if (M_delay_q == 1'h0) begin
+            M_alu_a = M_lives_p1_q;
+            M_alu_b = 1'h1;
+            M_alu_alufn = 6'h01;
+            M_lives_p1_d = M_alu_out;
             M_state_d = P1_LOSE_state;
           end
         end
@@ -153,15 +156,21 @@ module mojo_top_0 (
             M_speed_counter_d = M_speed_counter_q + 1'h1;
             M_state_d = P2_state;
           end else begin
-            M_lives_p1_d = M_lives_p1_q - 1'h1;
+            M_alu_a = M_lives_p1_q;
+            M_alu_b = 1'h1;
+            M_alu_alufn = 6'h01;
+            M_lives_p1_d = M_alu_out;
             M_state_d = P1_LOSE_state;
           end
         end
       end
       P2_state: begin
-        if (!M_ball_pos_q) begin
-          M_lives_p2_d = M_lives_p2_q - 1'h1;
+        if (M_ball_pos_q == 1'h0) begin
           if (M_delay_q == 1'h0) begin
+            M_alu_a = M_lives_p2_q;
+            M_alu_b = 1'h1;
+            M_alu_alufn = 6'h01;
+            M_lives_p1_d = M_alu_out;
             M_state_d = P2_LOSE_state;
           end
         end
@@ -170,7 +179,10 @@ module mojo_top_0 (
             M_speed_counter_d = M_speed_counter_q + 1'h1;
             M_state_d = P1_state;
           end else begin
-            M_lives_p2_d = M_lives_p2_q - 1'h1;
+            M_alu_a = M_lives_p1_q;
+            M_alu_b = 1'h1;
+            M_alu_alufn = 6'h01;
+            M_lives_p1_d = M_alu_out;
             M_state_d = P2_LOSE_state;
           end
         end
