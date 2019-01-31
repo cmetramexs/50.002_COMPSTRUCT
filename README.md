@@ -1,7 +1,7 @@
 ## 50.002 - 1D Game Project
 # Bing Bong Pong
 
-![images/poster - how to play](https://github.com/cmetramexs/50.002_COMPSTRUCT/images/poster.jpg)
+![images/poster - how to play](https://github.com/cmetramexs/50.002_COMPSTRUCT/tree/master/images/poster.jpg)
 
 *CI03 Group 5*  
 Andre Hadianto Lesmana | Antonio Miguel Canlas Quizon | Sarthak Ganoorkar | Yee Celine
@@ -66,6 +66,6 @@ player 1. Player loses when he or she loses all three lives. As the game progres
 speed will vary to increase the difficulty.
 
 #### Hardware Schematics
-![images/hardware_schematics - making and connecting the hardware](https://github.com/cmetramexs/50.002_COMPSTRUCT/images/hardware_schematics.jpg)
+![images/hardware_schematics - making and connecting the hardware](https://github.com/cmetramexs/50.002_COMPSTRUCT/tree/master/images/hardware_schematics.jpg)
 
 ---
