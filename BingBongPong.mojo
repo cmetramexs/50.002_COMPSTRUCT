@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="final" board="Mojo V3" language="Lucid">
   <files>
-    <src>button.luc</src>
     <src>lives.luc</src>
+    <src>button.luc</src>
     <src>alu.luc</src>
     <src>shifter.luc</src>
     <src>adder.luc</src>
