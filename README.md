@@ -1,7 +1,7 @@
 ## 50.002 - 1D Game Project
 # Bing Bong Pong
 
-![alt text](https://raw.githubusercontent.com/cemtramexs/50.002_COMPSTRUCT/images/poster.jpg)
+![images/poster - how to play](https://github.com/cmetramexs/50.002_COMPSTRUCT/tree/master/images/poster.jpg)
 
 *CI03 Group 5*  
 Andre Hadianto Lesmana | Antonio Miguel Canlas Quizon | Sarthak Ganoorkar | Yee Celine
