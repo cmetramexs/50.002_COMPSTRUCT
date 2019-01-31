@@ -1,7 +1,7 @@
 ## 50.002 - 1D Game Project
 # Bing Bong Pong
 
-![images/poster - how to play](https://github.com/cmetramexs/50.002_COMPSTRUCT/tree/master/images/poster.jpg)
+![images/poster - how to play](https://github.com/cmetramexs/50.002_COMPSTRUCT/images/poster.jpg)
 
 *CI03 Group 5*  
 Andre Hadianto Lesmana | Antonio Miguel Canlas Quizon | Sarthak Ganoorkar | Yee Celine
@@ -27,7 +27,7 @@ Player 2’s button when the ball reach the safezone. As the rally progress, the b
 change at random and when either players miss the safezone, the player will lose a life. Each
 players start with 3 lives.
 
-### Test Scenarios
+#### Test Scenarios
 Functional Test Scenarios:
 1. Check that the ball can be shifted left or right, using the ALU’s SHL/SHR functions.
 2. The ball can be returned after pressing a player’s button.
@@ -44,7 +44,7 @@ Gameplay Test Scenarios:
 5. Pressing the Start button while game is still ongoing.
 6. Pressing the button when a player loses a life i.e. ball should start from loser’s side.
 
-### User Manual
+#### User Manual
 Rules:
 1. Each player starts with three lives, the first player to lose all lives loses the game.
 2. Each player is assigned to a dedicated safe zone.
@@ -54,7 +54,7 @@ safezone.
 5. As the rally progresses, the ball will change to move at random speeds to increase the
 difficulty.
 
-### Game Design
+#### Game Design
 The game table will have a 16 bit LED matrix to represent the movement of the ball. The LEDs
 harbored by the safezone are red and the rest are green . When the game starts, both buttons
 for player 1 and player 2 will be enabled and the 3 LEDs next to each button will light up which
@@ -64,5 +64,8 @@ shifting towards player 2. If player 2 presses his button when the ball is still
 loses a life, otherwise the led next to the safezone will turn green and start shifting towards
 player 1. Player loses when he or she loses all three lives. As the game progresses, the shifting
 speed will vary to increase the difficulty.
+
+#### Hardware Schematics
+![images/hardware_schematics - making and connecting the hardware](https://github.com/cmetramexs/50.002_COMPSTRUCT/images/hardware_schematics.jpg)
 
 ---
