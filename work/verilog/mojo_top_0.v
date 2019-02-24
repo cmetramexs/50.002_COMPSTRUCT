@@ -179,7 +179,7 @@ module mojo_top_0 (
             M_speed_counter_d = M_speed_counter_q + 1'h1;
             M_state_d = P1_state;
           end else begin
-            M_alu_a = M_lives_p1_q;
+            M_alu_a = M_lives_p2_q;
             M_alu_b = 1'h1;
             M_alu_alufn = 6'h01;
             M_lives_p1_d = M_alu_out;

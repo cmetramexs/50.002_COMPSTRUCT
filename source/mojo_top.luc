@@ -123,7 +123,7 @@ module mojo_top (
             state.d = state.P1;
           }
           else {
-            alu.a = lives_p1.q;
+            alu.a = lives_p2.q;
             alu.b = 1;
             alu.alufn = 6h1;
             lives_p1.d = alu.out; //"-1" life

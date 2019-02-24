@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.28 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -53,29 +53,29 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/pipeline_18.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/pipeline_18.v" into library work
 Parsing module <pipeline_18>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/shifter_10.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/shifter_10.v" into library work
 Parsing module <shifter_10>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/edge_detector_12.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/edge_detector_12.v" into library work
 Parsing module <edge_detector_12>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/comparator_11.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/comparator_11.v" into library work
 Parsing module <comparator_11>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_conditioner_13.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_conditioner_13.v" into library work
 Parsing module <button_conditioner_13>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/adder_9.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/adder_9.v" into library work
 Parsing module <adder_9>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/speeds_2.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/speeds_2.v" into library work
 Parsing module <speeds_2>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/reset_conditioner_5.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/reset_conditioner_5.v" into library work
 Parsing module <reset_conditioner_5>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/lives_3.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/lives_3.v" into library work
 Parsing module <lives_3>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_6.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_6.v" into library work
 Parsing module <button_6>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/alu_1.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/alu_1.v" into library work
 Parsing module <alu_1>.
-Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Analyzing Verilog file "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
 
 =========================================================================
@@ -111,7 +111,7 @@ Elaborating module <pipeline_18>.
 =========================================================================
 
 Synthesizing Unit <mojo_top_0>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/mojo_top_0.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/mojo_top_0.v".
     Found 24-bit register for signal <M_ball_speed_q>.
     Found 16-bit register for signal <M_lives_p1_q>.
     Found 16-bit register for signal <M_lives_p2_q>.
@@ -148,14 +148,14 @@ Synthesizing Unit <mojo_top_0>.
 Unit <mojo_top_0> synthesized.
 
 Synthesizing Unit <alu_1>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/alu_1.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/alu_1.v".
     Found 16-bit 4-to-1 multiplexer for signal <out> created at line 41.
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <alu_1> synthesized.
 
 Synthesizing Unit <adder_9>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/adder_9.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/adder_9.v".
 WARNING:Xst:647 - Input <alufn<5:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 16-bit subtractor for signal <a[15]_b[15]_sub_2_OUT> created at line 18.
     Found 16-bit adder for signal <a[15]_b[15]_add_2_OUT> created at line 20.
@@ -164,7 +164,7 @@ WARNING:Xst:647 - Input <alufn<5:1>> is never used. This port will be preserved 
 Unit <adder_9> synthesized.
 
 Synthesizing Unit <shifter_10>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/shifter_10.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/shifter_10.v".
 WARNING:Xst:647 - Input <alufn<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <b<15:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 16-bit shifter logical left for signal <a[15]_b[3]_shift_left_0_OUT> created at line 23
@@ -177,7 +177,7 @@ WARNING:Xst:647 - Input <b<15:4>> is never used. This port will be preserved and
 Unit <shifter_10> synthesized.
 
 Synthesizing Unit <comparator_11>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/comparator_11.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/comparator_11.v".
 WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 16-bit 4-to-1 multiplexer for signal <_n0037> created at line 11.
     Found 16-bit comparator equal for signal <a[15]_b[15]_equal_1_o> created at line 21
@@ -189,41 +189,41 @@ WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved 
 Unit <comparator_11> synthesized.
 
 Synthesizing Unit <speeds_2>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/speeds_2.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/speeds_2.v".
     Found 8x24-bit Read Only RAM for signal <speed>
     Summary:
 	inferred   1 RAM(s).
 Unit <speeds_2> synthesized.
 
 Synthesizing Unit <lives_3>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/lives_3.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/lives_3.v".
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <lives_3> synthesized.
 
 Synthesizing Unit <reset_conditioner_5>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/reset_conditioner_5.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/reset_conditioner_5.v".
     Found 4-bit register for signal <M_stage_q>.
     Summary:
 	inferred   4 D-type flip-flop(s).
 Unit <reset_conditioner_5> synthesized.
 
 Synthesizing Unit <button_6>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_6.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_6.v".
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Summary:
 	no macro.
 Unit <button_6> synthesized.
 
 Synthesizing Unit <edge_detector_12>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/edge_detector_12.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/edge_detector_12.v".
     Found 1-bit register for signal <M_last_q>.
     Summary:
 	inferred   1 D-type flip-flop(s).
 Unit <edge_detector_12> synthesized.
 
 Synthesizing Unit <button_conditioner_13>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_conditioner_13.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/button_conditioner_13.v".
     Found 20-bit register for signal <M_ctr_q>.
     Found 20-bit adder for signal <M_ctr_q[19]_GND_11_o_add_2_OUT> created at line 39.
     Summary:
@@ -232,7 +232,7 @@ Synthesizing Unit <button_conditioner_13>.
 Unit <button_conditioner_13> synthesized.
 
 Synthesizing Unit <pipeline_18>.
-    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/50.002_COMPSTRUCT/work/planAhead/final/final.srcs/sources_1/imports/verilog/pipeline_18.v".
+    Related source file is "C:/Users/isxel/Desktop/T4/ComputationStructures/1D/GAME/BingBongPong/work/planAhead/final/final.srcs/sources_1/imports/verilog/pipeline_18.v".
     Found 2-bit register for signal <M_pipe_q>.
     Summary:
 	inferred   2 D-type flip-flop(s).
@@ -437,18 +437,18 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 621
-#      GND                         : 8
+# BELS                             : 691
+#      GND                         : 9
 #      INV                         : 12
 #      LUT1                        : 103
-#      LUT2                        : 3
-#      LUT3                        : 38
-#      LUT4                        : 27
-#      LUT5                        : 62
-#      LUT6                        : 108
-#      MUXCY                       : 125
-#      MUXF7                       : 4
-#      VCC                         : 7
+#      LUT2                        : 19
+#      LUT3                        : 33
+#      LUT4                        : 34
+#      LUT5                        : 48
+#      LUT6                        : 172
+#      MUXCY                       : 128
+#      MUXF7                       : 1
+#      VCC                         : 8
 #      XORCY                       : 124
 # FlipFlops/Latches                : 165
 #      FD                          : 3
@@ -472,16 +472,16 @@ Selected Device : 6slx9tqg144-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:             165  out of  11440     1%  
- Number of Slice LUTs:                  356  out of   5720     6%  
-    Number used as Logic:               353  out of   5720     6%  
+ Number of Slice LUTs:                  424  out of   5720     7%  
+    Number used as Logic:               421  out of   5720     7%  
     Number used as Memory:                3  out of   1440     0%  
        Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    460
-   Number with an unused Flip Flop:     295  out of    460    64%  
-   Number with an unused LUT:           104  out of    460    22%  
-   Number of fully used LUT-FF pairs:    61  out of    460    13%  
+ Number of LUT Flip Flop pairs used:    512
+   Number with an unused Flip Flop:     347  out of    512    67%  
+   Number with an unused LUT:            88  out of    512    17%  
+   Number of fully used LUT-FF pairs:    77  out of    512    15%  
    Number of unique control sets:        15
 
 IO Utilization: 
@@ -523,9 +523,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 12.833ns (Maximum Frequency: 77.924MHz)
+   Minimum period: 11.925ns (Maximum Frequency: 83.861MHz)
    Minimum input arrival time before clock: 3.526ns
-   Maximum output required time after clock: 16.352ns
+   Maximum output required time after clock: 15.444ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -534,36 +534,56 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 12.833ns (frequency: 77.924MHz)
-  Total number of paths / destination ports: 1749936 / 404
+  Clock period: 11.925ns (frequency: 83.861MHz)
+  Total number of paths / destination ports: 1496409 / 404
 -------------------------------------------------------------------------
-Delay:               12.833ns (Levels of Logic = 11)
-  Source:            M_delay_q_19 (FF)
-  Destination:       M_ball_pos_q_1 (FF)
+Delay:               11.925ns (Levels of Logic = 28)
+  Source:            M_ball_pos_q_14 (FF)
+  Destination:       M_state_q_FSM_FFd3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: M_delay_q_19 to M_ball_pos_q_1
+  Data Path: M_ball_pos_q_14 to M_state_q_FSM_FFd3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.525   1.181  M_delay_q_19 (M_delay_q_19)
-     LUT6:I0->O            2   0.254   1.002  M_delay_q[24]_GND_1_o_equal_28_o<24>4 (M_delay_q[24]_GND_1_o_equal_28_o<24>3)
-     LUT5:I1->O            5   0.254   1.069  M_delay_q[24]_GND_1_o_equal_28_o<24>5 (M_delay_q[24]_GND_1_o_equal_28_o)
-     LUT6:I3->O            3   0.235   0.766  Mmux_M_alu_a125_SW0 (N18)
-     LUT6:I5->O           10   0.254   1.008  Mmux_M_alu_a125_1 (Mmux_M_alu_a1251)
-     LUT5:I4->O            1   0.254   1.112  Mmux_M_alu_a91 (M_alu_a<2>)
-     begin scope: 'alu:a<2>'
-     LUT6:I1->O            1   0.254   0.790  Mmux_out43 (Mmux_out42)
-     LUT5:I3->O            3   0.250   0.766  Mmux_out44 (Mmux_out43)
-     end scope: 'alu:Mmux_out43'
-     LUT6:I5->O            5   0.254   0.841  out19 (out110)
-     LUT6:I5->O           16   0.254   1.182  _n0341_inv1 (_n0341_inv)
-     LUT3:I2->O            1   0.254   0.000  M_ball_pos_q_0_rstpot (M_ball_pos_q_0_rstpot)
-     FDR:D                     0.074          M_ball_pos_q_0
+     FDR:C->Q             17   0.525   1.209  M_ball_pos_q_14 (M_ball_pos_q_14)
+     begin scope: 'button_p1:M_ball_pos_q_14'
+     begin scope: 'button_p1/button_cond:M_ball_pos_q_14'
+     LUT3:I2->O            3   0.254   1.042  out4_SW0 (N20)
+     end scope: 'button_p1/button_cond:N20'
+     end scope: 'button_p1:N20'
+     LUT6:I2->O           18   0.254   1.235  _n0282_inv211 (_n0282_inv21)
+     LUT3:I2->O            1   0.254   0.682  Mmux_M_alu_alufn13_SW3 (N214)
+     LUT6:I5->O           17   0.254   1.209  Mmux_M_alu_alufn13 (M_alu_alufn<0>)
+     begin scope: 'alu:alufn<0>'
+     begin scope: 'alu/aluadd:alufn<0>'
+     LUT5:I4->O            1   0.254   0.000  Maddsub_adder_lut<0> (Maddsub_adder_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_adder_cy<0> (Maddsub_adder_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<1> (Maddsub_adder_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<2> (Maddsub_adder_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<3> (Maddsub_adder_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<4> (Maddsub_adder_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<5> (Maddsub_adder_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<6> (Maddsub_adder_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<7> (Maddsub_adder_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<8> (Maddsub_adder_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<9> (Maddsub_adder_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<10> (Maddsub_adder_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<11> (Maddsub_adder_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<12> (Maddsub_adder_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<13> (Maddsub_adder_cy<13>)
+     MUXCY:CI->O           0   0.023   0.000  Maddsub_adder_cy<14> (Maddsub_adder_cy<14>)
+     XORCY:CI->O           2   0.206   0.726  Maddsub_adder_xor<15> (adder<15>)
+     end scope: 'alu/aluadd:adder<15>'
+     end scope: 'alu:M_aluadd_adder<15>'
+     LUT5:I4->O           17   0.254   1.209  out15 (out15)
+     LUT6:I5->O           18   0.254   1.235  out112 (M_alu_out[15]_reduce_or_56_o)
+     LUT6:I5->O            1   0.254   0.000  M_state_q_FSM_FFd1-In3 (M_state_q_FSM_FFd1-In)
+     FDR:D                     0.074          M_state_q_FSM_FFd1
     ----------------------------------------
-    Total                     12.833ns (3.116ns logic, 9.717ns route)
-                                       (24.3% logic, 75.7% route)
+    Total                     11.925ns (3.378ns logic, 8.547ns route)
+                                       (28.3% logic, 71.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -588,34 +608,54 @@ Offset:              3.526ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1386652 / 27
+  Total number of paths / destination ports: 1195532 / 27
 -------------------------------------------------------------------------
-Offset:              16.352ns (Levels of Logic = 12)
-  Source:            M_delay_q_19 (FF)
+Offset:              15.444ns (Levels of Logic = 29)
+  Source:            M_ball_pos_q_14 (FF)
   Destination:       led_pos<15> (PAD)
   Source Clock:      clk rising
 
-  Data Path: M_delay_q_19 to led_pos<15>
+  Data Path: M_ball_pos_q_14 to led_pos<15>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.525   1.181  M_delay_q_19 (M_delay_q_19)
-     LUT6:I0->O            2   0.254   1.002  M_delay_q[24]_GND_1_o_equal_28_o<24>4 (M_delay_q[24]_GND_1_o_equal_28_o<24>3)
-     LUT5:I1->O            5   0.254   1.069  M_delay_q[24]_GND_1_o_equal_28_o<24>5 (M_delay_q[24]_GND_1_o_equal_28_o)
-     LUT6:I3->O            3   0.235   0.766  Mmux_M_alu_a125_SW0 (N18)
-     LUT6:I5->O           10   0.254   1.008  Mmux_M_alu_a125_1 (Mmux_M_alu_a1251)
-     LUT5:I4->O            1   0.254   1.112  Mmux_M_alu_a91 (M_alu_a<2>)
-     begin scope: 'alu:a<2>'
-     LUT6:I1->O            1   0.254   0.790  Mmux_out43 (Mmux_out42)
-     LUT5:I3->O            3   0.250   0.766  Mmux_out44 (Mmux_out43)
-     end scope: 'alu:Mmux_out43'
-     LUT6:I5->O            5   0.254   0.841  out19 (out110)
-     LUT6:I5->O           16   0.254   1.182  out110 (M_alu_out[15]_reduce_or_56_o)
+     FDR:C->Q             17   0.525   1.209  M_ball_pos_q_14 (M_ball_pos_q_14)
+     begin scope: 'button_p1:M_ball_pos_q_14'
+     begin scope: 'button_p1/button_cond:M_ball_pos_q_14'
+     LUT3:I2->O            3   0.254   1.042  out4_SW0 (N20)
+     end scope: 'button_p1/button_cond:N20'
+     end scope: 'button_p1:N20'
+     LUT6:I2->O           18   0.254   1.235  _n0282_inv211 (_n0282_inv21)
+     LUT3:I2->O            1   0.254   0.682  Mmux_M_alu_alufn13_SW3 (N214)
+     LUT6:I5->O           17   0.254   1.209  Mmux_M_alu_alufn13 (M_alu_alufn<0>)
+     begin scope: 'alu:alufn<0>'
+     begin scope: 'alu/aluadd:alufn<0>'
+     LUT5:I4->O            1   0.254   0.000  Maddsub_adder_lut<0> (Maddsub_adder_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_adder_cy<0> (Maddsub_adder_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<1> (Maddsub_adder_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<2> (Maddsub_adder_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<3> (Maddsub_adder_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<4> (Maddsub_adder_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<5> (Maddsub_adder_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<6> (Maddsub_adder_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<7> (Maddsub_adder_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<8> (Maddsub_adder_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<9> (Maddsub_adder_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<10> (Maddsub_adder_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<11> (Maddsub_adder_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<12> (Maddsub_adder_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Maddsub_adder_cy<13> (Maddsub_adder_cy<13>)
+     MUXCY:CI->O           0   0.023   0.000  Maddsub_adder_cy<14> (Maddsub_adder_cy<14>)
+     XORCY:CI->O           2   0.206   0.726  Maddsub_adder_xor<15> (adder<15>)
+     end scope: 'alu/aluadd:adder<15>'
+     end scope: 'alu:M_aluadd_adder<15>'
+     LUT5:I4->O           17   0.254   1.209  out15 (out15)
+     LUT6:I5->O           18   0.254   1.235  out112 (M_alu_out[15]_reduce_or_56_o)
      LUT5:I4->O            1   0.254   0.681  Mmux_led_pos17 (led_pos_0_OBUF)
      OBUF:I->O                 2.912          led_pos_0_OBUF (led_pos<0>)
     ----------------------------------------
-    Total                     16.352ns (5.954ns logic, 10.398ns route)
-                                       (36.4% logic, 63.6% route)
+    Total                     15.444ns (6.216ns logic, 9.228ns route)
+                                       (40.2% logic, 59.8% route)
 
 =========================================================================
 
@@ -627,18 +667,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   12.833|         |         |         |
+clk            |   11.925|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 12.34 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.89 secs
  
 --> 
 
-Total memory usage is 264928 kilobytes
+Total memory usage is 264676 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   32 (   0 filtered)
